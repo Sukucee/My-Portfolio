@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Journey</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(252, 244, 247);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px; 
+            background: radial-gradient(rgb(235, 132, 165) 10%, transparent 10%) 0 0 / 20px 20px,
+                rgb(252, 244, 247);
+            z-index: -1;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin: 40px 0;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: rgb(235, 132, 165);
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h2 {
+            font-size: 1.75em;
+            margin-bottom: 15px;
+            color: rgb(235, 132, 165);
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .card ul li {
+            padding: 5px 0;
+            font-size: 1em;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 300px;
+                flex: 1 1 100%;
+            }
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 0.5rem 1.1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, rgb(235, 132, 165), rgb(200, 100, 140));
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            z-index: 101;
+            box-shadow: 0 4px 15px rgba(235, 132, 165, 0.4);
+            border: none;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, rgb(200, 100, 140), rgb(235, 132, 165));
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(235, 132, 165, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Education Journey</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Elementary</h2>
+            <ul>
+                <li>NHC Elementary School | 2008</li>
+                <li>North Fairview Elementary School | 2008-2014</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>High School</h2>
+            <ul>
+                <li>NHC High School | 2014-2020</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>College</h2>
+            <ul>
+                <li>Saint Vincent de Ferrer College of Camarin Inc. | 2021-Present</li>
+            </ul>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="window.location.href='index.html'">Back</button>
+</body>
+</html>

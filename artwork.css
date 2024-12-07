@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Parkinsans', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: rgb(252, 244, 247);
+    color: black;
+    padding-top: 80px;
+}
+
+header {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: rgba(235, 132, 165, 0.162);
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0.9rem 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, rgb(235, 132, 165), rgb(200, 100, 140));
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 101;
+    box-shadow: 0 4px 15px rgba(235, 132, 165, 0.4);
+    border: none;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, rgb(200, 100, 140), rgb(235, 132, 165));
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(235, 132, 165, 0.6);
+}
+nav a {
+    font-size: 1.8rem;
+    color: rgb(30, 24, 26);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+    color: rgb(235, 132, 165);
+    border-bottom: 3px solid rgb(235, 132, 165);
+}
+
+@media(max-width: 995px) {
+    nav {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid rgb(235, 132, 165);
+        border-bottom: 3px solid rgb(235, 132, 165);
+        border-bottom-left-radius: 2rem;
+        padding: 1rem;
+        background-color: rgb(252, 244, 247);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid rgb(235, 132, 165);
+    }
+}
+
+section {
+    min-height: 100vh;
+    padding: 7rem 9%;
+}
+
+.gallery {
+    background-color: rgb(252, 244, 247);
+}
+
+.category {
+    margin-bottom: 7rem;
+}
+
+.category h2 {
+    font-size: 3rem;
+    color: rgb(235, 132, 165);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.image-container {
+    width: 100%; 
+    height: 0;
+    padding-bottom: 100%; 
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden; 
+    border-radius: 20px;
+    
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(235, 132, 165, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.image-container:hover .tooltip {
+    opacity: 1;
+}
+
+
+
+@media (max-width: 768px) {
+    .category h2 {
+        font-size: 2.5rem;
+    }
+
+    nav a {
+        font-size: 1.6rem;
+        margin-left: 2rem;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        
+    }
+
+    .tooltip {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+
+    .image-container img {
+        max-width: 100%;
+    }
+
+    .tooltip {
+        font-size: 1rem;
+    }
+}
+
+.image-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 102;
+}
+
+.image-popup img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image-popup .close-popup {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-popup .close-popup:hover {
+    transform: scale(1.2);
+}
+
+.image-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+.logo{
+    font-size: 2.5rem;
+    color: rgb(235, 132, 165);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
