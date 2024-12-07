@@ -11,14 +11,19 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">SUKUCEE</a>
+        <a class="logo">SUKUCEE</a>
+        
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
         <nav>
             <a href="Index.html" class="active">Home</a>
             <a href="Artworks.html">Artworks</a>
             <a href="About.html">About Me</a>
             <a href="Education.html">Education</a>
-            <a href="Contact.html">Contact</a>
         </nav>
     </header>
     <section class="home">
@@ -39,5 +44,17 @@
             
             <a href="Kc Magabo Resume .pdf" class="btn" target="_blank" id="hireButton">Hire me</a>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
